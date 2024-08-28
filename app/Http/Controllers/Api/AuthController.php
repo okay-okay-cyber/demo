@@ -35,6 +35,7 @@ class AuthController extends Controller
         'phoneno'=>$request->phoneno
     ]);
     if ($user){
+        //$user->assignRole($request->role);
         $user->assignRole('user');
         $this->sendOtp($user);
         //return ResponseHelper::success(message:'User is saved', data: $user, statuscode:201);
@@ -127,4 +128,5 @@ class AuthController extends Controller
         return ResponseHelper::success(message:'OTP has been sent', statuscode:200);
     }
  }
+ 
 }

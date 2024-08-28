@@ -30,6 +30,11 @@ Route::controller(HomeController::class)->middleware('auth:sanctum')->group
     Route::get('exercises','exerciseList');
     Route::get('workouts','workoutList');
 });
+Route::controller(HomeController::class)->middleware('auth:sanctum')->group
+(function(){
+    Route::get('users','userList');
+    Route::get('subscriptions','subscriptionList');
+});
 
 Route::post('password/email',[ForgotPasswordController::class, 'forgotPassword']);
 Route::post('password/reset',[ForgotPasswordController::class, 'reset'])->name('password.reset');

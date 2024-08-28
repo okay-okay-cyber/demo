@@ -82,7 +82,7 @@ class ProgramController extends Controller
             'name'=>'required',
             'description'=>'required',
             'duration_days'=>'required|numeric',
-            'photo'=>'|file|mimes:png,jpg,jpeg',
+            'photo'=>'required|file|mimes:png,jpg,jpeg',
             'exercise_id'=>'required|numeric',
            ]);
         $program = Program::findOrFail($id);
@@ -90,7 +90,7 @@ class ProgramController extends Controller
             $filename = $request->file('photo')->getClientOriginalName();
             $path= $request->file('photo')->storeAs('programs',$filename,'public');
             @unlink(storage_path().'/app/public/'.$program->photo);
-            $validate['program']=$path;
+            $validate['photo']=$path;
         }
        
         $program->update($validate);

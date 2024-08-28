@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('weight');
             $table->string('height');
-            $table->string('user-suscription_id');
-            $table->rememberToken();
+            $table->foreign('subscription_id')->references('id')->on('suscriptions');
             $table->timestamps();
         });
 

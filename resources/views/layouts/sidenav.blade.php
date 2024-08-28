@@ -20,6 +20,14 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Exercise
                     </a>
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        User
+                    </a>
+                    <a class="nav-link" href="{{ route('subscription.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        User
+                    </a>
 
                    
                     <a class="nav-link" href="charts.html">

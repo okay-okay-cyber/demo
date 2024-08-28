@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
-use App\Models\program;
+use App\Models\Program;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 
@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $program= program::count();
+        $program= Program::count();
         $exercise= Exercise::count();
         $workout= Workout::count();
         return view('home',compact('program','exercise','workout'));
