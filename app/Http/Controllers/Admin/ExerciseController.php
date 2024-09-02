@@ -61,7 +61,7 @@ class ExerciseController extends Controller
     public function show(string $id)
     {
         $exercise = Exercise::findOrFail($id);
-        return view('auth.exercise.view',compact('exercise'));
+        return view('auth.exercise.index',compact('exercise'));
         
         //$exercise = Program::with('exercise')->findOrFail($id);
         //return view('exercise.view',compact('exercises'));

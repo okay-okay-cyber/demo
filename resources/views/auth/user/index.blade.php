@@ -4,7 +4,7 @@
 <div class="col-lg-12 col-md-12">
     <h1>Workout</h1>
     <a href="{{ route ('user.create') }}">
-        <button class="btn btn-success">Create user</button>
+        <button class="btn btn-info">Create user</button>
     </a>
     @if (Session::has('success'))
     <div class="alert alert-success" role="alert">
@@ -39,7 +39,7 @@
            <td>{{ $user->age }}</td>
            <td>{{ $user->height }}</td>
            <td>{{ $user->weight }}</td>
-           <!--<td> {//{ $user->subscription>renewabledate }} </td>-->
+           <td> {{ $user->renewable_date }} </td>
             
 
            <td>

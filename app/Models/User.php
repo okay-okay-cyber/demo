@@ -29,7 +29,7 @@ class User extends Authenticatable
         'age',
         'weight',
         'height',
-        'subscription_id',
+        //'subscription_id',
         'is_verified',
     ];
 

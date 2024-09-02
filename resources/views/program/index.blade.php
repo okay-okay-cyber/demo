@@ -4,7 +4,7 @@
 <div class="col-lg-12 col-md-12">
     <h1>Program</h1>
     <a href="{{ route ('program.create') }}">
-        <button>Create Program</button>
+        <button class="btn btn-info">Create Program</button>
     </a>
     @if (Session::has('success'))
     <div class="alert alert-success" role="alert">
@@ -40,19 +40,19 @@
             <form action=" {{ route('program.show',$program->id) }}"method="GET">
               @method('VIEW')
               @csrf
-              <button>View</button>
+              <button class="btn btn-info">View</button>
               
             </form>
             <form action=" {{ route('program.edit',$program->id) }}"method="GET">
               @method('EDIT')
               @csrf
-              <button>Edit</button>
+              <button class="btn btn-warning">Edit</button>
               
             </form>
             <form action=" {{ route('program.destroy',$program->id) }}"method="POST">
               @method('DELETE')
               @csrf
-              <button>Delete</button>
+              <button class="btn btn-danger">Delete</button>
               
             </form>
            </td>

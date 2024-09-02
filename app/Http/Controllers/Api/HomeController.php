@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Exercise;
 use App\Models\product;
 use App\Models\Program;
+use App\Models\User;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -49,5 +51,23 @@ class HomeController extends Controller
              }
 
 }
+public function workoutList(){
+    $workouts= Workout::with('exercise')->where('amount',25)->take(1)->get();
+     if ($workouts->isNotEmpty()){
+         return ResponseHelper::success(message: 'All Workouts', data: $workouts, statuscode: 200);
+     } else{
+         return ResponseHelper::success(message:'No Programs Found',data:[], statuscode: 200);
+
+     }
+    }
+    public function userList(){
+        $users= User::with('subscription')->where('amount',25)->take(1)->get();
+         if ($users->isNotEmpty()){
+             return ResponseHelper::success(message: 'All Users', data: $users, statuscode: 200);
+         } else{
+             return ResponseHelper::success(message:'No Users Found',data:[], statuscode: 200);
+ 
+         }
+        }
 }
 //categroy to product(one to many products)

@@ -23,7 +23,8 @@ Route::middleware('auth','role:admin')->prefix('admin')->group(function(){
     Route::resource('exercise', ExerciseController::class);
     Route::resource('user', UserController::class);
     Route::resource('subscription', SubscriptionController::class);
-    //Route::resource('subscription', SubscriptionController::class);
+    Route::get('/admin/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+
 });
 
 

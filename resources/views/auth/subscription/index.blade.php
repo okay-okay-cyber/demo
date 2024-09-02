@@ -3,8 +3,8 @@
 @section('content')
 <div class="col-lg-12 col-md-12">
     <h1>Exercise</h1>
-    <a href="{{ route ('auth.subscription.create') }}">
-        <button>Add Subscription</button>
+    <a href="{{ route ('subscription.create') }}">
+        <button class="btn btn-info">Add Subscription</button>
     </a>
     @if (Session::has('success'))
     <div class="alert alert-success" role="alert">
@@ -24,26 +24,25 @@
         @forelse ($subscriptions as $subscription)
         <tr>
             <td>{{ $subscription->id }}</td>
-            <td>{{ $subscription->start_date }}</td>
-            <td>{{ $subscription->renewable_date }}</td>
+            <td>
+              <input type="date" value="{{ \Carbon\Carbon::parse($subscription->start_date)->format('Y-m-d') }}" readonly />
+          </td>
+          <td>
+              <input type="date" value="{{ \Carbon\Carbon::parse($subscription->renewable_date)->format('Y-m-d') }}" readonly />
+          </td>
            
            <td>
-            <form action=" {{ route('auth.subscription.show',$subscription->id) }}"method="GET">
-              @method('VIEW')
-              @csrf
-              <button>View</button>
-              
-            </form>
-            <form action=" {{ route('auth.subscription.edit',$subscription->id) }}"method="GET">
+            
+            <form action=" {{ route('subscription.edit',$subscription->id) }}"method="GET">
               @method('EDIT')
               @csrf
-              <button>Edit</button>
+              <button class="btn btn-warning">Edit</button>
               
             </form>
-            <form action=" {{ route('auth.subscription.destroy',$subscription->id) }}"method="POST">
+            <form action=" {{ route('subscription.destroy',$subscription->id) }}"method="POST">
               @method('DELETE')
               @csrf
-              <button>Delete</button>
+              <button class="btn btn-danger">Delete</button>
               
             </form>
            </td>

@@ -32,7 +32,20 @@ class SubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //  $request->validate([
+      $request->validate([
+            'id'=>'required',
+            'start_date'=>'required|date',
+            'renewable_date'=>'required|date',
+           ]);
+       
+        Subscription::create([
+            'id'=>$request->name,
+            'start_date'=>$request->start_date,
+            'renewable_date'=>$request->renewable_date,
+           
+          ]);
+        return redirect('admin/subscription')->with('success','Subscription saved successfully');
     }
 
     /**
@@ -40,7 +53,8 @@ class SubscriptionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $subscription = Subscription::findOrFail($id);
+        return view('auth.subscription.index',compact('subscriptions'));
     }
 
     /**
@@ -48,7 +62,8 @@ class SubscriptionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $subscription = Subscription::findOrFail($id);
+        return view('auth.subscription.update', compact('subscription'));
     }
 
     /**
@@ -56,14 +71,26 @@ class SubscriptionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $validate = $request->validate( [
+            'id'=>'required',
+            'start_date'=>'required|date',
+            'renewable_date'=>'required|date',
+        ]);
 
+        $subscription = Subscription::findOrFail($id);
+
+        $subscription->update($validate);
+        return redirect('admin/subscription')->with('success','Subscription saved successfully');
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $subscription = Subscription::findOrFail($id);
+
+        $subscription->delete();
+        return redirect()->route('subscription.index')->with('success', 'subscription deleted successfully!');
+        
     }
 }

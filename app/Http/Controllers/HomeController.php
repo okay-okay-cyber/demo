@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Exercise;
 use App\Models\Program;
+use App\Models\Subscription;
+use App\Models\User;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 
@@ -29,6 +31,8 @@ class HomeController extends Controller
         $program= Program::count();
         $exercise= Exercise::count();
         $workout= Workout::count();
+        $user= User::count();
+        $subscription= Subscription::count();
         return view('home',compact('program','exercise','workout'));
     }
 }

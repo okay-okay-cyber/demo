@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('weight');
             $table->string('height');
+            $table->unsignedBigInteger('subscription_id');
             $table->foreign('subscription_id')->references('id')->on('suscriptions');
             $table->timestamps();
         });

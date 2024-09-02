@@ -27,19 +27,19 @@
                 <label for="userName" class="form-label">Name</label>
                 <input type="text" name="name"class="form-control" id="userName" placeholder="Enter User name">
             </div>
-            
             <div class="mb-3">
-                <label for="userPhoto" class="form-label">Photo</label>
-                <input class="form-control"  name="photo" type="file" id="userPhoto">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">
+                <label for="userPhoto" class="form-label">Photo</label>
+                <input class="form-control"  name="photo" type="file" id="userPhoto">
             </div>
+           
             <div class="mb-3">
                 <label for="phoneno" class="form-label">Phone Number</label>
                 <input type="text" name="phoneno" class="form-control" id="phoneno" placeholder="Enter Phone Number">

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscriptions', function (Blueprint $table) {
+        Schema::table('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->start_date();
-            $table->renewable_date();
+            $table->date('start_date')->nullable(false)->change();
+            $table->date('renewable_date')->nullable(false)->change();
             $table->timestamps();
         });
     }

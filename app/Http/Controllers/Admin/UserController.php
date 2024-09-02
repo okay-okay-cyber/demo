@@ -46,6 +46,7 @@ class UserController extends Controller
             //'is_verified'=>'required',
             'phoneno'=>'required',
             'age'=>'required',
+            'gender'=>'required',
             'height'=>'required',
             'weight'=>'required',
             'photo'=>'required|file|mimes:png,jpg,jpeg',
@@ -56,12 +57,14 @@ class UserController extends Controller
             $path= $request->file('photo')->storeAs('users',$filename,'public');
            }
           User::create([
-            'name'=>$request->name,
+            'id'=>$request->id,
             'role'=>$request->role,
+            'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$request->password,
             'phoneno'=>$request->phoneno,
             'age'=>$request->age,
+            'gender'=>$request->gender,
             'height'=>$request->height,
             'weight'=>$request->weight,
             'photo'=>$path,
@@ -130,6 +133,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
+      
         $user = User::findOrFail($id);
         if(file_exists(storage_path().'/app/public/'.$user->photo)){
             @unlink(storage_path().'/app/public/'.$user->photo);
